@@ -124,11 +124,11 @@ It's been a while since we've done any forms, but let's shake off the rust and r
     <form>
       <div>
         <label for="photo_caption">Caption:</label>
-        <input id="photo_caption" type="text" name="the_caption">
+        <input id="photo_caption" type="text" name="caption">
       </div>
       <div>
         <label for="photo_image_url">Image URL:</label>
-        <input id="photo_image_url" type="text" name="the_source">
+        <input id="photo_image_url" type="text" name="source">
       </div>
       <div>
         <button>Create Photo</button>
@@ -217,7 +217,7 @@ It's a little more complicated than `new_form`, though, because instead of showi
 
 Hint: You can pre-fill an `<input>` with the `value=""` attribute; e.g.,
 
-    <input type="text" name="the_caption" value="<%= @photo.caption %>">
+    <input type="text" name="caption" value="<%= @photo.caption %>">
 
 The `action` attributes of your edit forms should look like this:
 
