@@ -12,38 +12,38 @@ class PhotosController < ApplicationController
   end
 
   def create_row
-    p = Photo.new
-    p.caption = params[:caption]
-    p.source = params[:source]
-    p.save
+    @photo = Photo.new
+    @photo.caption = params[:caption]
+    @photo.source = params[:source]
+    @photo.save
 
     #render("create_row.html.erb")
     redirect_to("http://localhost:3000/photos")
   end
 
   def destroy
-    p = Photo.find(params[:id])
+    @photo = Photo.find(params[:id])
 
-    p.destroy
+    @photo.destroy
 
     redirect_to "/photos", :notice => "Photo deleted."
   end
 
   def edit
-    p = Photo.find_by({ :id => params[:id]})
+    @photo = Photo.find_by({ :id => params[:id]})
 
-    p.caption = params[:caption]
-    p.source = params[:source]
+    @photo.caption = params[:caption]
+    @photo.source = params[:source]
 
   end
 
   def update
-    p = Photo.find_by({ :id => params[:id]})
+    @photo = Photo.find_by({ :id => params[:id]})
 
-    p.caption = params[:caption]
-    p.source = params[:source]
+    @photo.caption = params[:caption]
+    @photo.source = params[:source]
 
-    if p.save
+    if @photo.save
       redirect_to "/photos/#{params[:id]}", :notice => "Photo updated successfully."
     else
       render 'edit'
